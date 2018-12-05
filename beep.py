@@ -5,6 +5,7 @@ import traceback
 
 def onServerInfo(server, info):
   if info.isPlayer == 1:
+    server.tell('Lucun_Ji', info.content)
     if info.content.find('@ ') > -1:
       nameList = re.findall('(?<=@ )\S+(?= ?)',info.content)
       if nameList:
