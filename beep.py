@@ -5,8 +5,7 @@ import traceback
 
 def onServerInfo(server, info):
   if info.isPlayer == 1:
-    server.say(info.content)
-    if info.content.find('@') > -1:
-      nameList = re.findall('(?<=@)\S+',info.content)
+    if info.content.find('@ ') > -1:
+      nameList = re.findall('(?<=@ )\S+(?= )',info.content)
       for name in nameList:
         server.execute('execute at ' + name + ' run playsound minecraft:entity.arrow.hit_player player ' + name)
