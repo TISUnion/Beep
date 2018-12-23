@@ -10,6 +10,6 @@ def onServerInfo(server, info):
       if nameList:
         for name in nameList:
           if name == 'all':
-            server.execute('execute at @a run playsound minecraft:entity.arrow.hit_player player ' + name)
+            server.execute('execute at @a run playsound minecraft:entity.arrow.hit_player player @a')
           else:
             server.execute('execute at ' + name + ' run playsound minecraft:entity.arrow.hit_player player ' + name)
