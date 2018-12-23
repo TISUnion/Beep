@@ -9,4 +9,7 @@ def onServerInfo(server, info):
       nameList = re.findall('(?<=@ )\S+',info.content)
       if nameList:
         for name in nameList:
-          server.execute('execute at ' + name + ' run playsound minecraft:entity.arrow.hit_player player ' + name)
+          if name == 'all':
+            server.execute('execute at ' + @a + ' run playsound minecraft:entity.arrow.hit_player player ' + name)
+          else:
+            server.execute('execute at ' + name + ' run playsound minecraft:entity.arrow.hit_player player ' + name)
