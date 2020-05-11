@@ -54,3 +54,7 @@ def on_info(server, info):
 	info2 = copy.deepcopy(info)
 	info2.isPlayer = info2.is_player
 	onServerInfo(server, info2)
+
+
+def on_load(server, old):
+	server.add_help_message('@ xxx', '@某人，@ all可作用于所有玩家。使用两个@@效果更佳')
