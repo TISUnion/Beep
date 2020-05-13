@@ -27,9 +27,9 @@ def beep_big(server, info, name_list):
 	for name in name_list:
 		server.execute('title {} times 2 15 5'.format(name))
 		server.execute('title {} title {}'.format(name, text))
-	for i in range(3):
-		beep_small(server, info, name_list)
+	for i in range(2):
 		time.sleep(1 / 3)
+		beep_small(server, info, name_list)
 
 
 def find_name_list(text, pattern):
