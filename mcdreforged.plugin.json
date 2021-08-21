@@ -1,0 +1,16 @@
+{
+	"id": "beep",
+	"version": "1.0.0",
+	"name": "Beep",
+	"description": {
+		"en_us": "Use @ <someone> to ping someone, @ all for everyone. Use @@ for a pogger ping",
+		"zh_cn": "@某人，@ all可作用于所有玩家。使用两个@@小心被打"
+	},
+	"author": [
+		"Fallen_Breath"
+	],
+	"link": "https://github.com/TISUnion/Beep",
+	"resources": [
+		"lang"
+	]
+}
