@@ -17,15 +17,16 @@ def beep_big(server: ServerInterface, info: Info, name_list):
 		return
 	info.cancel_send_to_server()
 	source_name = RText(info.player if info.is_player else server.tr('beep.console'), RColor.aqua)
-	title: RTextBase = server.tr('beep.title', source_name)
-	subtitle: RTextBase = server.tr('beep.subtitle', source_name)
+	title: RTextBase = server.rtr('beep.title', source_name)
+	subtitle: RTextBase = server.rtr('beep.subtitle', source_name)
 
 	@new_thread('beep')
 	def beeeeeeep():
 		for name in name_list:
-			server.execute('title {} times 2 15 5'.format(name))
-			server.execute('title {} title {}'.format(name, title.to_json_str()))
-			server.execute('title {} subtitle {}'.format(name, subtitle.to_json_str()))
+			with RTextMCDRTranslation.language_context(server.get_preference(name).language):
+				server.execute('title {} times 2 15 5'.format(name))
+				server.execute('title {} title {}'.format(name, title.to_json_str()))
+				server.execute('title {} subtitle {}'.format(name, subtitle.to_json_str()))
 		for i in range(2):
 			time.sleep(1.0 / 3)
 			beep_small(server, info, name_list)
